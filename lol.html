@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="background_image">
+        <div class="sun">
+            <img src="SUN.png" alt="" style="height: 40rem;">
+        </div>
+        <div class="moon">
+            <img src="new_moon.png" alt="" style="height: 20rem; left: 100rem; border-radius: 100%;">
+        </div>
+    </div>
+
+    <div class="papa">
+        <div class="Ghadi">
+            <div id="time"></div>
+            <!-- <div class="haath"> -->
+            <div class="gola"></div>
+            <div class="second_hand_like_ansh"></div>
+            <div class="minute_hand"></div>
+            <div class="hour_hand"></div>
+            <!-- </div> -->
+        </div>
+    </div>
+
+    <script>
+        // let temp = - 1
+        const seconds_hands = document.querySelector('.second_hand_like_ansh');
+        const minutes_hands = document.querySelector('.minute_hand');
+        const hours_hands = document.querySelector('.hour_hand');
+        const sun_angle = document.querySelector('.sun');
+        const script_body = document.querySelector('body');
+        // console.log(sun_angle);
+        const moon_angle = document.querySelector('.moon');
+
+        function setDate() {
+
+            var sun = 0;
+            const now = new Date();
+            const seconds = now.getSeconds();
+            const second_degree_rotate = ((seconds / 60) * 360);
+            seconds_hands.style.transform = `rotate(${second_degree_rotate}deg)`;
+
+            const minutes = now.getMinutes();
+            const minute_degree_rotate = ((minutes / 60) * 360) + ((seconds / 60) * 6);
+            minutes_hands.style.transform = `rotate(${minute_degree_rotate}deg)`;
+
+            const hours = now.getHours();
+            // console.log(minutes);
+
+            // const hours = 0;
+
+            let backcolor1 = 253;
+            let backcolor2 = 166;
+
+            if (hours >= 5 && hours <= 11) {
+                backcolor1 = 210;
+                backcolor2 = 120;
+                backcolor1 = ((hours - 1) / 9) * 160;
+                backcolor2 = ((hours - 1) / 9) * 160;
+                script_body.style.background = `rgb(${backcolor1},${backcolor2} , 0)`;
+            }
+            else if (hours == 12 || hours == 13) {
+                script_body.style.background = `#c4a700`;
+                sun_angle.style.filter = "brightness(120%)";
+            }
+            else if (hours >= 14 && hours <= 16) {
+                backcolor1 = (20 / (hours - 1)) * 120;
+                backcolor2 = (20 / (hours - 1)) * 120;
+                script_body.style.background = `rgb(${backcolor1},${backcolor2} , 0)`;
+            }
+
+            else if (hours == 17) {
+                script_body.style.background = `rgb(202, 109, 22)`;
+            }
+
+            else if (hours == 18) {
+                script_body.style.background = `#9e3636`;
+                sun_angle.style.filter = "brightness(70%)";
+            }
+
+            else if (hours == 19) {
+                script_body.style.background = `rgb(34, 2, 63)`;
+                sun_angle.style.filter = "brightness(40%)";
+            }
+
+            else if (hours == 20) {
+
+                script_body.style.background = `rgb( 10, 0, 19)`;
+            }
+
+            else {
+                backcolor1 = 0;
+                backcolor2 = 0;
+                script_body.style.background = `rgb(${backcolor1},${backcolor2} , 0)`;
+            }
+
+
+            // console.log(backcolor1, backcolor2);
+
+            const hours_degree_rotate = ((hours / 12) * 360) + ((minutes / 60) * 30);
+            hours_hands.style.transform = `rotate(${hours_degree_rotate}deg)`;
+            document.getElementById('time').innerHTML = hours + ":" + minutes + ":" + seconds;
+
+            // while (hours < 19) {
+            // script_body.style.background = `rgb(${backcolor = backcolor - 0.5}, 166, 0)`;
+
+            // setInterval(setDate, 3.6e+6);
+            // }
+
+
+            if (hours >= 5 && hours <= 19) {
+                const sun_degree_rotate = ((hours / 12) * 90);
+                sun_angle.style.transform = `rotate(${sun_degree_rotate}deg)`;
+
+                moon_angle.style.display = "none";
+
+
+            }
+            else if (hours > 19) {
+                sun_angle.style.display = "none";
+                const moon_degree_rotate = ((hours / 12) * 104);
+                moon_angle.style.transform = `rotate(${moon_degree_rotate}deg)`;
+                // console.log(moon_degree_rotate);
+            }
+            else if (hours >= 23 || hours >= 0 && hours <= 4) {
+                moon_angle.style.transform = `rotate(220deg)`;
+                const sun_degree_rotate = ((hours / 12) * 100);
+                sun_angle.style.transform = `rotate(${sun_degree_rotate}deg)`;
+                sun_angle.style.filter = "brightness(35%)";
+                moon_angle.style.filter = "brightness(100%)";
+                if (hours == 3) {
+                    moon_angle.style.filter = "brightness(50%)";
+                }
+                else if (hours == 4) {
+                    moon_angle.style.filter = "brightness(35%)";
+                }
+            }
+
+
+        }
+        setInterval(setDate, 1000);
+
+        setDate();
+    </script>
+
+
+
+</body>
+
+</html>
