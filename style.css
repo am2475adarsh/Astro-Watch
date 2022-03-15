@@ -1,6 +1,7 @@
 /* @import url('href="https://fonts.googleapis.com/css2?family=Armata&family=Black+Ops+One&family=Bungee&display=swap" rel="stylesheet"'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap'); */
+
 *{
     box-sizing: border-box;
 
@@ -9,11 +10,14 @@ html{
     height: 100%;
 }
 body{
+    position: relative;
     background: hsl(0, 0%, 16%);
     /* text-align: center; */
     font-size: 10px;
     height: 100%;
     margin: 0;
+    overflow-y: hidden;
+    /* overflow-x: hidden; */
 }
 img{
     height: 180px;
@@ -21,38 +25,50 @@ img{
 }
 
 .moon{
-    position: absolute; 
-    /* background: url('blem.png'); */
-     top: 80rem;
-    left: 140rem;
-    z-index: 1000;
-    font-size: 500px;
-    transform-origin: 300%;
-    transform: rotate(180deg);
-    color: rgb(146, 35, 104);
-}
-.sun{
     position: absolute;
-    background: url('SUN.png'); 
-    top: 95rem;
+    /* background-image: url('SUN.png');  */
+    /* background: red; */
+    top: 12rem;
     left: 40rem;
     z-index: 1000;
     font-size: 500px;
-    transform-origin: 300%;
+    transform-origin: 325% 87%;
     transform: rotate(0deg);
     color:rgb(10, 0, 19);
     filter: brightness(50%);
+    height: 50%;
+    width: 5vw;
+    /* height: 50vh;
+    width: 20vh; */
+    border-radius: 100%;
+}
+
+.sun{
+    position: absolute;
+    /* background-image: url('SUN.png');  */
+    /* background: red; */
+    top: 5rem;
+    left: 15rem;
+    z-index: 1000;
+    font-size: 500px;
+    transform-origin: 325% 87%;
+    transform: rotate(0deg);
+    color:rgb(10, 0, 19);
+    filter: brightness(50%);
+    height: 50vh;
+    width: 20vh;
     border-radius: 100%;
 }
 
 
 #time{
     background-color: rgba(10, 6, 6, 0.9);
-    position: relative;
+    position: absolute;
     box-sizing: border-box;
     color:brown;
-    margin-top: 30rem;
-    max-height: 100%;
+    /* margin-top: 30rem;
+    max-height: 100%; */
+    margin-top: 8rem;
     border-style: solid;
     border-color: rgb(0, 0, 0);
    border-radius: 10%;
@@ -60,7 +76,6 @@ img{
    font-family: 'Black Ops One', 'Segoe UI', sans-serif;
    font-family: 'Black Ops One', cursive;
    font-family: 'Holtwood One SC', serif;
-    padding: 5px;
    font-weight:1000;
 }
 
@@ -84,10 +99,11 @@ img{
     align-items: center;
     height: 45vh;
     width: 45vh;
-    background: #363232;
+    background: linear-gradient( grey 1%, #292424 100%);
+    background: linear-gradient();
      border-radius: 100%;
     /* z-index: 1; */
-    border: 1px solid rgba(17, 15, 15, 0.9);
+    border: px solid rgba(17, 15, 15, 0.9);
 }
 
 .circle{
@@ -127,7 +143,7 @@ img{
     left :29.5rem; */
     transform-origin: 100%;
     transform: rotate(90deg);
-    background-image: linear-gradient(rgb(255, 255, 255) 50%, rgb(0,0,0,0) 50%);
+    background-image: linear-gradient(black 6%, rgb(255, 255, 255) 0%, rgb(0,0,0,0) 50%);
 }
 
 .minute_hand{
@@ -150,7 +166,7 @@ img{
    /* z-index: 100; */
    justify-self: center;
    height: 17vh;
-   width: 0.25vw;
+   width: 0.29vw;
    /* background: rgb(0, 0, 0); */
    position:absolute;
    /* top: 19rem;

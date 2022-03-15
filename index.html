@@ -12,10 +12,10 @@
 <body>
     <div class="background_image">
         <div class="sun">
-            <img src="SUN.png" alt="" style="height: 40rem;">
+            <img src="SUN.png" alt="">
         </div>
         <div class="moon">
-            <img src="new_moon.png" alt="" style="height: 20rem; left: 100rem; border-radius: 100%;">
+            <img src="new_moon.png" alt="" style=" border-radius: 100%;">
         </div>
     </div>
 
@@ -56,7 +56,7 @@
             const hours = now.getHours();
             // console.log(minutes);
 
-            // const hours = 18;
+            // const hours = 0;
 
             let backcolor1 = 253;
             let backcolor2 = 166;
@@ -118,7 +118,7 @@
 
 
             if (hours >= 5 && hours <= 19) {
-                const sun_degree_rotate = ((hours / 12) * 90);
+                const sun_degree_rotate = ((hours / 12) * 120);
                 sun_angle.style.transform = `rotate(${sun_degree_rotate}deg)`;
 
                 moon_angle.style.display = "none";
@@ -127,23 +127,24 @@
             }
             else if (hours > 19) {
                 sun_angle.style.display = "none";
-                const moon_degree_rotate = ((hours / 12) * 104);
+                const moon_degree_rotate = ((hours / 12) * 120);
                 moon_angle.style.transform = `rotate(${moon_degree_rotate}deg)`;
                 // console.log(moon_degree_rotate);
             }
             else if (hours >= 23 || hours >= 0 && hours <= 4) {
-                moon_angle.style.transform = `rotate(220deg)`;
-                const sun_degree_rotate = ((hours / 12) * 100);
+                moon_angle.style.transform = `rotate(240deg)`;
+                const sun_degree_rotate = ((hours / 12) * 120);
                 sun_angle.style.transform = `rotate(${sun_degree_rotate}deg)`;
                 sun_angle.style.filter = "brightness(35%)";
                 moon_angle.style.filter = "brightness(100%)";
-                if (hours == 3) {
-                    moon_angle.style.filter = "brightness(50%)";
-                }
-                else if (hours == 4) {
-                    moon_angle.style.filter = "brightness(35%)";
-                }
             }
+            if (hours == 3) {
+                moon_angle.style.filter = "brightness(50%)";
+            }
+            else if (hours == 4) {
+                moon_angle.style.filter = "brightness(35%)";
+            }
+
 
 
         }
